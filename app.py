@@ -21,11 +21,12 @@ UPLOAD_FOLDER = './upload'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-model = keras.models.load_model('./model_91.keras')
+model = keras.models.load_model('./model_fix.h5')
 
 def predict(img_buf):
     if img_buf:
-        img_pil = Image.open(io.BytesIO(img_buf)).convert('RGB').resize(size=(224, 224))
+        # img_pil = Image.open(io.BytesIO(img_buf)).convert('RGB').resize(size=(224, 224))
+        img_pil = Image.open(io.BytesIO(img_buf)).convert('L').resize(size=(100, 100))
     # img_krs = load_img('./contoh.png', color_mode='grayscale', target_size=(224, 224))
     # img_krs.show()
         img_arr = img_to_array(img_pil)
