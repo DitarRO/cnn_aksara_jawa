@@ -52,7 +52,8 @@ def upload_file():
     return render_template('index.html', data=data_gambar, hasil=predict(img_buf))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
+    # app.run()
 
 # buffer = open('D:\!!WorkSpace\cnn_jawa\static\img\huruf_jawa.png', 'rb')
 # buffer.write(open('D:\!!WorkSpace\cnn_jawa\static\img\contoh.png', 'rb').read())
