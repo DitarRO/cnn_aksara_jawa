@@ -1,5 +1,5 @@
 FROM python:3.9.19-slim-bullseye
 WORKDIR /app
-RUN pip install tensorflow==2.15 flask pillow
 COPY . .
+RUN pip install -r requirements.txt
 CMD ["python", "app.py"]
